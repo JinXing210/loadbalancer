@@ -2,6 +2,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var dns = require("dns");
+
 //-------------------------------------------------------//
 app.set('view cache',true)
 
@@ -26,11 +28,22 @@ isEmpty = function(obj) {
     return true;
 }
 
+var server_ip = ""
+var aone = dns.lookup('www.aone.one',function( error,addresses,family) {
+    console.log( addresses )
+    server_ip = addresses
+})
+
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 app.get('/', function(req, res) {
     console.log( "/"+ JSON.stringify(req.params) );
-    res.render('index.html');
+
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('Hello World!'+ server_ip);
+    res.end();
+
+    // res.render('index.html');
 });
 
