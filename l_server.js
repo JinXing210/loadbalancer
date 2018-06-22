@@ -9,7 +9,7 @@ app.set('view cache',true)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(express.static(__dirname + '/html'));
+//app.use(express.static(__dirname + '/html'));
 //-------------------------------------------------------//
 var port = process.env.PORT || 80;
 var server = app.listen(port, function(){
@@ -45,6 +45,6 @@ app.get('/', function(req, res) {
     res.end();
 
     // res.render('index.html');
-    
+
 });
 
