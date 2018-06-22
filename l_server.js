@@ -29,11 +29,11 @@ isEmpty = function(obj) {
 }
 
 var server_ip = ""
-var aone = dns.lookup('www.aone.one',function( error,addresses,family) {
-    console.log( addresses )
-    server_ip = addresses
-})
 
+dns.lookup(require('os').hostname(), function (err, add, fam) {
+    console.log('addr: '+add);
+    server_ip = add
+  })
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 //-------------------------------------------------------//
