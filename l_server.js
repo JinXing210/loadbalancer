@@ -2,27 +2,29 @@ var Hapi = require('hapi');
 
 var port = 80;
 var server = new Hapi.Server({ port: port })
-await server.start();    
-
-var d = new Date();
-console.log( d.getTime());
-    //----------------------------------------------------------------------//
-server.route({method:'GET',path:'/',handler: (req,res) => { 
-    console.log( "index.html/"+JSON.stringify(req.params) );
-    return { success:true,data: {
-        stun_server: {
-            url:"stun:52.23.226.85:3478",
-            username:"",
-            password:""
-        },
-        turn_server:{
-            url:"turn:52.23.226.85:3478",
-            username:"admin",
-            password:"admin"
+const initLive = async() => {
+    await server.start();    
+    var d = new Date();
+    console.log( d.getTime());
+        //----------------------------------------------------------------------//
+    server.route({method:'GET',path:'/',handler: (req,res) => { 
+        console.log( "index.html/"+JSON.stringify(req.params) );
+        return { success:true,data: {
+            stun_server: {
+                url:"stun:52.23.226.85:3478",
+                username:"",
+                password:""
+            },
+            turn_server:{
+                url:"turn:52.23.226.85:3478",
+                username:"admin",
+                password:"admin"
+            }
         }
+        };
+    }});
     }
-    };
-}});
+initLive()
 
 return;
 //-------------------------------------------------------//
