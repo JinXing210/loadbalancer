@@ -1,21 +1,21 @@
-// var Hapi = require('hapi');
+var Hapi = require('hapi');
 
-// var port = 80;
-// var server = new Hapi.Server({ port: port })
-// const initLive = async() => {
-//     await server.start();    
-//     var d = new Date();
-//     console.log( d.getTime());
-//         //----------------------------------------------------------------------//
-//     server.route({method:'GET',path:'/',handler: (req,res) => { 
-//         console.log( "index.html/"+JSON.stringify(req.params) );
-//         return "Hello.I amd Backed server"
-//     }});
-// }
+var port = 80;
+var server = new Hapi.Server({ port: port })
+const initLive = async() => {
+    await server.start();    
+    var d = new Date();
+    console.log( d.getTime());
+        //----------------------------------------------------------------------//
+    server.route({method:'GET',path:'/',handler: (req,res) => { 
+        console.log( "index.html/"+JSON.stringify(req.params) );
+        return "Hello.I amd Backed server"
+    }});
+}
 
-// initLive()
+initLive()
 
-// return;
+return;
 //-------------------------------------------------------//
 var express = require('express');
 var app = express();
