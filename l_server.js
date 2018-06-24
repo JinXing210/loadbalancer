@@ -9,21 +9,9 @@ const initLive = async() => {
         //----------------------------------------------------------------------//
     server.route({method:'GET',path:'/',handler: (req,res) => { 
         console.log( "index.html/"+JSON.stringify(req.params) );
-        return { success:true,data: {
-            stun_server: {
-                url:"stun:52.23.226.85:3478",
-                username:"",
-                password:""
-            },
-            turn_server:{
-                url:"turn:52.23.226.85:3478",
-                username:"admin",
-                password:"admin"
-            }
-        }
-        };
+        return "Hello.I amd Backed server"
     }});
-    }
+}
 initLive()
 
 return;
