@@ -1,6 +1,6 @@
 var Hapi = require('hapi');
 
-var port = 80;
+var port = 4500;
 var server = new Hapi.Server({ port: port })
 const initLive = async() => {
     await server.start();    
