@@ -1,21 +1,21 @@
 var Hapi = require('hapi');
 
-// var port = 4500;
-// var server = new Hapi.Server({ port: port })
-// const initLive = async() => {
-//     await server.start();    
-//     var d = new Date();
-//     console.log( d.getTime());
-//         //----------------------------------------------------------------------//
-//     server.route({method:'GET',path:'/',handler: (req,res) => { 
-//         console.log( "index.html/"+JSON.stringify(req.params) );
-//         return "Hello.I amd Backed server"
-//     }});
-// }
+var port = 4500;
+var server = new Hapi.Server({ port: port })
+const initLive = async() => {
+    var d = new Date();
+    console.log( d.getTime());
+        //----------------------------------------------------------------------//
+    server.route({method:'GET',path:'/',handler: (req,res) => { 
+        console.log( "index.html/"+JSON.stringify(req.params) );
+        return "Hello.I amd Backed server"
+    }});
+    await server.start();    
+}
 
-// initLive()
+initLive()
 
-// return;
+return;
 //-------------------------------------------------------//
 var express = require('express');
 var app = express();
@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 //app.use(express.static(__dirname + '/html'));
 //-------------------------------------------------------//
-var port = process.env.PORT || 4500;
+var port = process.env.PORT || 80;
 var server = app.listen(port, function(){
     console.log("Live Video Chat Server has started on port " + port);
 });
