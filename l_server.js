@@ -1,7 +1,7 @@
 var Hapi = require('hapi');
 var port = 4500;
-var server = new Hapi.Server()
-server.connection({"host":"localhost","port":port});
+var server = new Hapi.Server({ port: port })
+// server.connection({"host":"localhost","port":port});
 server.start(error => {
     if(error) {
         throw error;
