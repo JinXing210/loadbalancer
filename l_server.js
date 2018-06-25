@@ -12,6 +12,7 @@ server.route({method:'GET',path:'/',handler: (req,res) => {
     console.log( "index.html/"+JSON.stringify(req.params) );
     return "Hello.I amd Backed server"
 }});
+console.log("-Listening at " + server.info.uri);
 
 return
 
