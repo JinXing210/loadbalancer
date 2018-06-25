@@ -9,7 +9,7 @@ const initLive = async() => {
         //----------------------------------------------------------------------//
     server.route({method:'GET',path:'/',handler: (req,res) => { 
         console.log( "index.html/"+JSON.stringify(req.params) );
-        res.response("Hello.I amd Backed server")
+        return "Hello.I amd Backed server"
     }});
 }
 
