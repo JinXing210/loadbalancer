@@ -1,19 +1,34 @@
 var Hapi = require('hapi');
-
 var port = 4500;
-var server = new Hapi.Server({ port: port })
-const initLive = async() => {
-    var d = new Date();
-    console.log( d.getTime());
-        //----------------------------------------------------------------------//
-    server.route({method:'GET',path:'/',handler: (req,res) => { 
-        console.log( "index.html/"+JSON.stringify(req.params) );
-        res.response("Hello.I amd Backed server")
-    }});
-    await server.start();    
-}
+var server = new Hapi.Server()
+server.connection({"host":"localhost","port":port});
+server.start(error => {
+    if(error) {
+        throw error;
+    }
+    console.log("Listening at " + server.info.uri);
+});
+server.route({method:'GET',path:'/',handler: (req,res) => { 
+    console.log( "index.html/"+JSON.stringify(req.params) );
+    return "Hello.I amd Backed server"
+}});
 
-initLive()
+return
+
+// var port = 4500;
+// var server = new Hapi.Server({ port: port })
+// const initLive = async() => {
+//     var d = new Date();
+//     console.log( d.getTime());
+//         //----------------------------------------------------------------------//
+//     server.route({method:'GET',path:'/',handler: (req,res) => { 
+//         console.log( "index.html/"+JSON.stringify(req.params) );
+//         res.response("Hello.I amd Backed server")
+//     }});
+//     await server.start();    
+// }
+
+// initLive()
 
 return;
 //-------------------------------------------------------//
