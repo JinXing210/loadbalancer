@@ -2,17 +2,18 @@ var Hapi = require('hapi');
 var port = 4500;
 var server = new Hapi.Server({ address:'0.0.0.0',port: port })
 // server.connection({"host":"localhost","port":port});
+server.route({method:'GET',path:'/',handler: (req,res) => { 
+    console.log( "index.html/"+JSON.stringify(req.params) );
+    return "Hello.I amd Backed server"
+}});
+console.log("-Listening at " + server.info.uri);
+
 server.start(error => {
     if(error) {
         throw error;
     }
     console.log("Listening at " + server.info.uri);
 });
-server.route({method:'GET',path:'/',handler: (req,res) => { 
-    console.log( "index.html/"+JSON.stringify(req.params) );
-    return "Hello.I amd Backed server"
-}});
-console.log("-Listening at " + server.info.uri);
 
 return
 
